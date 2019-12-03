@@ -17,16 +17,16 @@ steps:
     script: 'sqllocaldb start mssqllocaldb'
 - task: DownloadSecureFile@1
   inputs:
-    secureFile: 'signkey.snk'
+    secureFile: 'signkey-ef-datamigrations.snk'
 - task: CopyFiles@2
   inputs:
     SourceFolder: '$(Agent.TempDirectory)'
-    Contents: 'signkey.snk'
+    Contents: 'signkey-ef-datamigrations.snk'
     TargetFolder: './private'
 - task: DotNetCoreCLI@2
   inputs:
     command: 'test'
-    projects: './src/tests/Bulk.Test/Bulk.Test.csproj'
+    projects: './src/test/Extensions.EntityFramework.DataMigraton.Test/Extensions.EntityFramework.DataMigraton.Test.csproj'
     feedsToUse: 'select'
     versioningScheme: 'off'
 - task: PowerShell@2
