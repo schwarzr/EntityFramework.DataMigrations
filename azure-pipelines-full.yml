@@ -26,7 +26,7 @@ steps:
 - task: DotNetCoreCLI@2
   inputs:
     command: 'test'
-    projects: './src/test/Extensions.EntityFramework.DataMigraton.Test/Extensions.EntityFramework.DataMigraton.Test.csproj'
+    projects: './test/Extensions.EntityFramework.DataMigraton.Test/Extensions.EntityFramework.DataMigraton.Test.csproj'
     feedsToUse: 'select'
     versioningScheme: 'off'
 - task: PowerShell@2
