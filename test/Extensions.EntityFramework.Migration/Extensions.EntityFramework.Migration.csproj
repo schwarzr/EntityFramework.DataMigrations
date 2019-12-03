@@ -1,0 +1,11 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net462</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Extensions.EntityFramework.DataMigration\Extensions.EntityFramework.DataMigration.csproj" />
+    <ProjectReference Include="..\Extensions.EntityFramework.Database\Extensions.EntityFramework.Database.csproj" />
+  </ItemGroup>
+</Project>

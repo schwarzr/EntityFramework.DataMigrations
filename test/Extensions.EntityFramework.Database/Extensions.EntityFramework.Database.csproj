@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net462</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="EntityFramework" Version="6.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Extensions.EntityFramework.DataMigration\Extensions.EntityFramework.DataMigration.csproj" />
+    <ProjectReference Include="..\Extensions.Test.Model\Extensions.Test.Model.csproj" />
+  </ItemGroup>
+</Project>

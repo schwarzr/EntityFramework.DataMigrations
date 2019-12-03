@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net462</TargetFramework>
+
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Remove="StyleCop.Analyzers" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="EntityFramework" Version="6.3.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="2.2.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.2.0" />
+    <PackageReference Include="xunit" Version="2.4.0" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Extensions.EntityFramework.DataMigration\Extensions.EntityFramework.DataMigration.csproj" />
+    <ProjectReference Include="..\Extensions.EntityFramework.Database\Extensions.EntityFramework.Database.csproj" />
+    <ProjectReference Include="..\Extensions.EntityFramework.Migration\Extensions.EntityFramework.Migration.csproj" />
+    <ProjectReference Include="..\Extensions.Test.Model\Extensions.Test.Model.csproj" />
+  </ItemGroup>
+</Project>
