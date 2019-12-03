@@ -9,4 +9,4 @@ New-NugetPackages `
     -VersionPackage "Extensions.EntityFrameworkCore.DataMigration" `
     -VersionFilePath "..\version.json" `
     -OutputPath "..\dist\nuget\" `
-    -MsBuildParams "SourceLinkCreate=true;SignAssembly=true;AssemblyOriginatorKeyFile=..\..\private\signkey.snk"
+    -MsBuildParams "SourceLinkCreate=true;SignAssembly=true;AssemblyOriginatorKeyFile=..\..\private\signkey-ef-datamigrations.snk"
