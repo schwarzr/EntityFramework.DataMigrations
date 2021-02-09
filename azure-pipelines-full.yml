@@ -30,8 +30,6 @@ steps:
     feedsToUse: 'select'
     versioningScheme: 'off'
 - task: PowerShell@2
-  env:
-    BUILD_PRERELEASE: '$(Build.Prerelease)'
   inputs:
     filePath: './tools/build-full.ps1'
     workingDirectory: './tools'
