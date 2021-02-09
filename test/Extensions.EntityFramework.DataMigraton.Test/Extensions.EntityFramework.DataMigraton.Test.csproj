@@ -5,6 +5,7 @@
 
     <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
     <IsPackable>false</IsPackable>
+    <Configurations>Debug;Release;EF31;EF22</Configurations>
   </PropertyGroup>
 
   <ItemGroup>

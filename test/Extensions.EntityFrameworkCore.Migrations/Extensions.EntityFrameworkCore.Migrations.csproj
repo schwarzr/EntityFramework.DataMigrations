@@ -1,7 +1,23 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
+    <Configurations>Debug;Release;EF31;EF22</Configurations>
+  </PropertyGroup>
+  
+  <PropertyGroup Condition="'$(Configuration)'!='EF31' and '$(Configuration)'!='EF22'">
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <DefineConstants>EF5_0</DefineConstants>
+    <EfVersion>50</EfVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'EF22'">
     <TargetFramework>netstandard2.0</TargetFramework>
+    <DefineConstants>EF2_2</DefineConstants>
+    <EfVersion>22</EfVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'EF31'">
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <DefineConstants>EF3_1</DefineConstants>
+    <EfVersion>31</EfVersion>
   </PropertyGroup>
 
   <ItemGroup>
