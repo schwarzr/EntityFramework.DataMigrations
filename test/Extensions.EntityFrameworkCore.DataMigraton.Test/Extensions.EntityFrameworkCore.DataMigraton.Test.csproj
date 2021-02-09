@@ -1,19 +1,43 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.0</TargetFramework>
-
+    <TargetFrameworks>netcoreapp3.1;net5.0</TargetFrameworks>
     <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
     <IsPackable>false</IsPackable>
+    <Configurations>Debug;Release;EF31;EF22</Configurations>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)'!='EF31' and '$(Configuration)'!='EF22'">
+    <DefineConstants>EF5_0</DefineConstants>
+    <EfVersion>50</EfVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'EF22'">
+    <DefineConstants>EF2_2</DefineConstants>
+    <EfVersion>22</EfVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'EF31'">
+    <DefineConstants>EF3_1</DefineConstants>
+    <EfVersion>31</EfVersion>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Remove="StyleCop.Analyzers" />
   </ItemGroup>
 
-  <ItemGroup>
+  <ItemGroup Condition="'$(EfVersion)'=='50'">
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="5.0.2" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(EfVersion)'=='22'">
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.2.4" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="2.2.4" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(EfVersion)'=='31'">
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.11" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="3.1.11" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.2.0" />
     <PackageReference Include="xunit" Version="2.4.0" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.4.0" />

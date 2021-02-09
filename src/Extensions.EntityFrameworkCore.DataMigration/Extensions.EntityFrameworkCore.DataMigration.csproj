@@ -1,10 +1,32 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
+    <Configurations>Debug;Release;EF22;EF31</Configurations>
+  </PropertyGroup>
+  
+  <PropertyGroup Condition="'$(Configuration)'!='EF31' and '$(Configuration)'!='EF22'">
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <DefineConstants>EF5_0</DefineConstants>
+    <EfVersion>50</EfVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'EF22'">
     <TargetFramework>netstandard2.0</TargetFramework>
+    <DefineConstants>EF2_2</DefineConstants>
+    <EfVersion>22</EfVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'EF31'">
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <DefineConstants>EF3_1</DefineConstants>
+    <EfVersion>31</EfVersion>
   </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.0.0" />
+  <ItemGroup Condition="'$(EfVersion)'=='50'">
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.0" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(EfVersion)'=='22'">
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.2.0" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(EfVersion)'=='31'">
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.0" />
   </ItemGroup>
 </Project>

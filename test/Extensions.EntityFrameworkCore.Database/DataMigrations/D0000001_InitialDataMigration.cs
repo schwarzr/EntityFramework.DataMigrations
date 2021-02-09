@@ -31,10 +31,15 @@ namespace Extensions.EntityFrameworkCore.Database
 
             if (context.Database.ProviderName == "Microsoft.EntityFrameworkCore.SqlServer")
             {
+#if EF2_2
                 var statement = $"SET IDENTITY_INSERT {context.Model.FindEntityType(typeof(Country)).Relational().TableName} ON";
 #pragma warning disable EF1000 // Possible SQL injection vulnerability.
                 await context.Database.ExecuteSqlCommandAsync(statement);
 #pragma warning restore EF1000 // Possible SQL injection vulnerability.
+#else
+                var statement = $"SET IDENTITY_INSERT {context.Model.FindEntityType(typeof(Country)).GetTableName()} ON";
+                await context.Database.ExecuteSqlRawAsync(statement);
+#endif
             }
 
             await context.Countries.AddRangeAsync(countries);
@@ -42,10 +47,15 @@ namespace Extensions.EntityFrameworkCore.Database
 
             if (context.Database.ProviderName == "Microsoft.EntityFrameworkCore.SqlServer")
             {
+#if EF2_2
                 var statement = $"SET IDENTITY_INSERT {context.Model.FindEntityType(typeof(Country)).Relational().TableName} OFF";
 #pragma warning disable EF1000 // Possible SQL injection vulnerability.
                 await context.Database.ExecuteSqlCommandAsync(statement);
 #pragma warning restore EF1000 // Possible SQL injection vulnerability.
+#else
+                var statement = $"SET IDENTITY_INSERT {context.Model.FindEntityType(typeof(Country)).GetTableName()} OFF";
+                await context.Database.ExecuteSqlRawAsync(statement);
+#endif
             }
         }
     }
