@@ -11,22 +11,13 @@ namespace Extensions.EntityFrameworkCore.DataMigration.Infrastructure
         public DataMigrationOptionsExtension(DataMigrationOptions migrationOptions)
         {
             _migrationOptions = migrationOptions;
-#if !EF2_2
+
             Info = new DataMigrationOptionsExtensionInfo(this);
-#endif
         }
 
-#if EF2_2
-        public string LogFragment => "SqlServerBulk";
-#else
         public DbContextOptionsExtensionInfo Info { get; }
-#endif
 
-#if EF2_2
-        public bool ApplyServices(IServiceCollection services)
-#else
         public void ApplyServices(IServiceCollection services)
-#endif
         {
             services.AddSingleton(_migrationOptions);
             var oldCustomizer = services.First(p => p.ServiceType == typeof(IModelCustomizer));
@@ -34,22 +25,12 @@ namespace Extensions.EntityFrameworkCore.DataMigration.Infrastructure
             services.Add(ServiceDescriptor.Describe(oldCustomizer.ImplementationType, oldCustomizer.ImplementationType, oldCustomizer.Lifetime));
             var newCustomizer = typeof(DataMigrationModelCustomizer<>).MakeGenericType(oldCustomizer.ImplementationType);
             services.Add(ServiceDescriptor.Describe(typeof(IModelCustomizer), newCustomizer, oldCustomizer.Lifetime));
-
-#if EF2_2
-            return true;
-#endif
         }
 
         public virtual void Validate(IDbContextOptions options)
         {
         }
 
-#if EF2_2
-        public virtual long GetServiceProviderHashCode()
-        {
-            return _migrationOptions.GetHashCode() * 9909;
-        }
-#else
         private class DataMigrationOptionsExtensionInfo : DbContextOptionsExtensionInfo
         {
             private readonly DataMigrationOptionsExtension _extension;
@@ -64,7 +45,11 @@ namespace Extensions.EntityFrameworkCore.DataMigration.Infrastructure
 
             public override string LogFragment => "SqlServerBulk";
 
+#if EF6_0
+            public override int GetServiceProviderHashCode()
+#else
             public override long GetServiceProviderHashCode()
+#endif
             {
                 return _extension._migrationOptions.GetHashCode() * 9909;
             }
@@ -76,7 +61,13 @@ namespace Extensions.EntityFrameworkCore.DataMigration.Infrastructure
                     debugInfo.Add("DataMigrations.MigrationAssembly", _extension._migrationOptions.MigrationAssembly);
                 }
             }
-        }
+
+#if EF6_0
+            public override bool ShouldUseSameServiceProvider(DbContextOptionsExtensionInfo other)
+            {
+                return true;
+            }
 #endif
+        }
     }
 }

@@ -31,11 +31,7 @@ namespace Extensions.EntityFrameworkCore.DataMigraton.Test
             var entity = ctx.Model.FindEntityType(typeof(DataMigrationHistoryRow));
 
             Assert.NotNull(entity);
-#if EF2_2
-            Assert.Equal("__DataMigrationHistory", entity.Relational().TableName);
-#else
             Assert.Equal("__DataMigrationHistory", entity.GetTableName());
-#endif
         }
 
         protected virtual void Dispose(bool disposing)

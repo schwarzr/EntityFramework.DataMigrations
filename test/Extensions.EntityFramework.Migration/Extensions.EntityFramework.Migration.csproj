@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net462</TargetFramework>
-    <Configurations>Debug;Release;EF31;EF22</Configurations>
+    <Configurations>Debug;Release;EF31;EF60;EF50</Configurations>
   </PropertyGroup>
 
   <ItemGroup>
