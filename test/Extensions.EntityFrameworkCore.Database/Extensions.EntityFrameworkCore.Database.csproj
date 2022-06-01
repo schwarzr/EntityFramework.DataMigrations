@@ -1,30 +1,38 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <Configurations>Debug;Release;EF31;EF22</Configurations>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFrameworks>netcoreapp3.1;net5;net6</TargetFrameworks>
+		<Configurations>Debug;Release;EF31;EF60;EF50</Configurations>
+	</PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)'!='EF31' and '$(Configuration)'!='EF22'">
-    <TargetFramework>netstandard2.1</TargetFramework>
-    <DefineConstants>EF5_0</DefineConstants>
-    <EfVersion>50</EfVersion>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)' == 'EF22'">
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <DefineConstants>EF2_2</DefineConstants>
-    <EfVersion>22</EfVersion>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)' == 'EF31'">
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <DefineConstants>EF3_1</DefineConstants>
-    <EfVersion>31</EfVersion>
-  </PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)' == 'EF31'">
+		<TargetFrameworks>netcoreapp3.1</TargetFrameworks>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)'=='EF60'">
+		<TargetFrameworks>net6</TargetFrameworks>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)'=='EF50'">
+		<TargetFrameworks>net5</TargetFrameworks>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(TargetFramework)' == 'netcoreapp3.1'">
+		<DefineConstants>EF3_1</DefineConstants>
+		<EfVersion>31</EfVersion>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(TargetFramework)' == 'net6'">
+		<DefineConstants>EF6_0</DefineConstants>
+		<EfVersion>60</EfVersion>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(TargetFramework)' == 'net5'">
+		<DefineConstants>EF5_0</DefineConstants>
+		<EfVersion>50</EfVersion>
+	</PropertyGroup>
 
   <ItemGroup Condition="'$(EfVersion)'=='50'">
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.0" />
   </ItemGroup>
-  <ItemGroup Condition="'$(EfVersion)'=='22'">
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.2.0" />
+  <ItemGroup Condition="'$(EfVersion)'=='60'">
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.0" />
   </ItemGroup>
   <ItemGroup Condition="'$(EfVersion)'=='31'">
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.0" />

@@ -7,27 +7,27 @@ New-NugetPackages `
     -Projects $projects `
     -NugetServerUrl "http://www.nuget.org/api/v2" `
     -VersionPackage "Extensions.EntityFrameworkCore.DataMigration" `
-    -VersionFilePath "..\version-22.json" `
+    -VersionFilePath "..\version-31.json" `
     -OutputPath "..\dist\nuget\" `
-    -MsBuildParams "SignAssembly=true;AssemblyOriginatorKeyFile=..\..\private\signkey-ef-datamigrations.snk;Configuration=EF22"
+    -MsBuildParams "SignAssembly=true;AssemblyOriginatorKeyFile=..\..\private\signkey-ef-datamigrations.snk;EfVersion=31"
 
 New-NugetPackages `
     -Projects $projects `
     -DoNotCleanOutput `
     -NugetServerUrl "http://www.nuget.org/api/v2" `
     -VersionPackage "Extensions.EntityFrameworkCore.DataMigration" `
-    -VersionFilePath "..\version-31.json" `
+    -VersionFilePath "..\version-50.json" `
     -OutputPath "..\dist\nuget\" `
-    -MsBuildParams "SignAssembly=true;AssemblyOriginatorKeyFile=..\..\private\signkey-ef-datamigrations.snk;Configuration=EF31"
+    -MsBuildParams "SignAssembly=true;AssemblyOriginatorKeyFile=..\..\private\signkey-ef-datamigrations.snk;EfVersion=5"
 
 $coreVersion = New-NugetPackages `
     -Projects $projects `
     -DoNotCleanOutput `
     -NugetServerUrl "http://www.nuget.org/api/v2" `
     -VersionPackage "Extensions.EntityFrameworkCore.DataMigration" `
-    -VersionFilePath "..\version-50.json" `
+    -VersionFilePath "..\version-60.json" `
     -OutputPath "..\dist\nuget\" `
-    -MsBuildParams "SignAssembly=true;AssemblyOriginatorKeyFile=..\..\private\signkey-ef-datamigrations.snk;EfVersion=50"
+    -MsBuildParams "SignAssembly=true;AssemblyOriginatorKeyFile=..\..\private\signkey-ef-datamigrations.snk;EfVersion=6"
 
 
 Write-Host "##vso[build.updatebuildnumber]$($coreVersion.NugetVersion)"
