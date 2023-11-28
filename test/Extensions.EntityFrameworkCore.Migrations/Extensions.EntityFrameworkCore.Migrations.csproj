@@ -1,31 +1,24 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-	  <TargetFrameworks>netcoreapp3.1;net5;net6</TargetFrameworks>
-    <Configurations>Debug;Release;EF31;EF60;EF50</Configurations>
+	  <TargetFrameworks>net6;net8</TargetFrameworks>
+    <Configurations>Debug;Release;EF31;EF60;EF50;EF80</Configurations>
   </PropertyGroup>
 
-	<PropertyGroup Condition="'$(Configuration)' == 'EF31'">
-		<TargetFrameworks>netcoreapp3.1</TargetFrameworks>
-	</PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)'=='EF60'">
 		<TargetFrameworks>net6</TargetFrameworks>
 	</PropertyGroup>
-	<PropertyGroup Condition="'$(Configuration)'=='EF50'">
-		<TargetFrameworks>net5</TargetFrameworks>
+	<PropertyGroup Condition="'$(Configuration)'=='EF80'">
+	  <TargetFrameworks>net8</TargetFrameworks>
 	</PropertyGroup>
 
-	<PropertyGroup Condition="'$(TargetFramework)' == 'netcoreapp3.1'">
-		<DefineConstants>EF3_1</DefineConstants>
-		<EfVersion>31</EfVersion>
-	</PropertyGroup>
 	<PropertyGroup Condition="'$(TargetFramework)' == 'net6'">
 		<DefineConstants>EF6_0</DefineConstants>
 		<EfVersion>60</EfVersion>
 	</PropertyGroup>
-	<PropertyGroup Condition="'$(TargetFramework)' == 'net5'">
-		<DefineConstants>EF5_0</DefineConstants>
-		<EfVersion>50</EfVersion>
+	<PropertyGroup Condition="'$(TargetFramework)' == 'net8'">
+		<DefineConstants>EF8_0</DefineConstants>
+		<EfVersion>80</EfVersion>
 	</PropertyGroup>
 
   <ItemGroup>

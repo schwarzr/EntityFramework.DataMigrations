@@ -5,7 +5,7 @@
 
     <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
     <IsPackable>false</IsPackable>
-    <Configurations>Debug;Release;EF31;EF60;EF50</Configurations>
+    <Configurations>Debug;Release;EF31;EF60;EF50;EF80</Configurations>
   </PropertyGroup>
 
   <ItemGroup>
@@ -15,9 +15,9 @@
   <ItemGroup>
     <PackageReference Include="EntityFramework" Version="6.3.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="2.2.0" />
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.2.0" />
-    <PackageReference Include="xunit" Version="2.4.0" />
-    <PackageReference Include="xunit.runner.visualstudio" Version="2.4.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.8.0" />
+    <PackageReference Include="xunit" Version="2.6.2" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.5.4" />
   </ItemGroup>
 
   <ItemGroup>

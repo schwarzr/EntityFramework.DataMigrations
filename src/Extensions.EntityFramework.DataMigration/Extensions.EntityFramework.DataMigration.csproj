@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFrameworks>net45; netstandard2.1</TargetFrameworks>
-    <Configurations>Debug;Release;EF31;EF22;EF60;EF50</Configurations>
+    <Configurations>Debug;Release;EF31;EF22;EF60;EF50;EF80</Configurations>
   </PropertyGroup>
 
   <ItemGroup>
