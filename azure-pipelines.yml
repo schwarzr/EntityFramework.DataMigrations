@@ -27,20 +27,6 @@ steps:
   inputs:
     command: 'test'
     projects: '$(Build.SourcesDirectory)/test/Extensions.EntityFrameworkCore.DataMigraton.Test/Extensions.EntityFrameworkCore.DataMigraton.Test.csproj'
-    arguments: '-c EF22'
-    feedsToUse: 'select'
-    versioningScheme: 'off'
-- task: DotNetCoreCLI@2
-  inputs:
-    command: 'test'
-    projects: '$(Build.SourcesDirectory)/test/Extensions.EntityFrameworkCore.DataMigraton.Test/Extensions.EntityFrameworkCore.DataMigraton.Test.csproj'
-    arguments: '-c EF31'
-    feedsToUse: 'select'
-    versioningScheme: 'off'
-- task: DotNetCoreCLI@2
-  inputs:
-    command: 'test'
-    projects: '$(Build.SourcesDirectory)/test/Extensions.EntityFrameworkCore.DataMigraton.Test/Extensions.EntityFrameworkCore.DataMigraton.Test.csproj'
     arguments: '-c Release'
     feedsToUse: 'select'
     versioningScheme: 'off'
