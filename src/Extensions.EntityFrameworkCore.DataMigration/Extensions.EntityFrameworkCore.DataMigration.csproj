@@ -1,38 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>net6;net8</TargetFrameworks>
-		<Configurations>Debug;Release;EF31;EF60;EF50;EF80</Configurations>
-	</PropertyGroup>
-
-	<PropertyGroup Condition="'$(Configuration)'=='EF60' Or '$(EfVersion)' == '6'">
-		<TargetFrameworks>net6</TargetFrameworks>
-		<DefineConstants>EF6_0</DefineConstants>
-		<EfVersion>6</EfVersion>
-	</PropertyGroup>
-
-	<PropertyGroup Condition="'$(Configuration)'=='EF80' Or '$(EfVersion)' == '8'">
 		<TargetFrameworks>net8</TargetFrameworks>
-		<DefineConstants>EF8_0</DefineConstants>
-		<EfVersion>8</EfVersion>
+		<Configurations>Debug;Release;EF90</Configurations>
 	</PropertyGroup>
 
-	<PropertyGroup Condition="'$(EfVersion)'=='' And '$(TargetFramework)'=='net6'">
-		<EfVersion>6</EfVersion>
-		<DefineConstants>EF6_0</DefineConstants>
-	</PropertyGroup>
-
-	<PropertyGroup Condition="'$(EfVersion)'=='' And '$(TargetFramework)'=='net8'">
-		<EfVersion>8</EfVersion>
-		<DefineConstants>EF8_0</DefineConstants>
-	</PropertyGroup>
-
-
-	<ItemGroup Condition="'$(EfVersion)'=='6'">
-		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.0" />
-	</ItemGroup>
-
-	<ItemGroup Condition="'$(EfVersion)'=='8'">
-		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.0" />
+	<ItemGroup>
+		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.0" />
 	</ItemGroup>
 </Project>

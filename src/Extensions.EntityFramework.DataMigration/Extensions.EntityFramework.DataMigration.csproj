@@ -1,11 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net45; netstandard2.1</TargetFrameworks>
+    <TargetFrameworks>net462; netstandard2.1</TargetFrameworks>
     <Configurations>Debug;Release;EF31;EF22;EF60;EF50;EF80</Configurations>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="EntityFramework" Version="6.3.0" />
+    <PackageReference Include="EntityFramework" Version="6.5.1" />
   </ItemGroup>
 </Project>

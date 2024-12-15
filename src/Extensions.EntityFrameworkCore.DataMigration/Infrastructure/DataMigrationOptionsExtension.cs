@@ -45,11 +45,7 @@ namespace Extensions.EntityFrameworkCore.DataMigration.Infrastructure
 
             public override string LogFragment => "SqlServerBulk";
 
-#if EF6_0 || EF8_0
             public override int GetServiceProviderHashCode()
-#else
-            public override long GetServiceProviderHashCode()
-#endif
             {
                 return _extension._migrationOptions.GetHashCode() * 9909;
             }
@@ -62,12 +58,10 @@ namespace Extensions.EntityFrameworkCore.DataMigration.Infrastructure
                 }
             }
 
-#if EF6_0 || EF8_0
             public override bool ShouldUseSameServiceProvider(DbContextOptionsExtensionInfo other)
             {
                 return true;
             }
-#endif
         }
     }
 }

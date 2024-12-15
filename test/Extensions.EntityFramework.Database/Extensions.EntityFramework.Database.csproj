@@ -2,11 +2,11 @@
 
   <PropertyGroup>
     <TargetFramework>net462</TargetFramework>
-    <Configurations>Debug;Release;EF31;EF60;EF50;EF80</Configurations>
+    <Configurations>Debug;Release;EF90</Configurations>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="EntityFramework" Version="6.3.0" />
+    <PackageReference Include="EntityFramework" Version="6.5.1" />
   </ItemGroup>
 
   <ItemGroup>

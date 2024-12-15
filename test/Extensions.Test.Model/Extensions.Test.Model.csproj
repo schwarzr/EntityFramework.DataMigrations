@@ -2,10 +2,10 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Configurations>Debug;Release;EF31;EF60;EF50;EF80</Configurations>
+    <Configurations>Debug;Release;EF90</Configurations>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="System.ComponentModel.Annotations" Version="4.7.0"></PackageReference>
+    <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0"></PackageReference>
   </ItemGroup>
 </Project>

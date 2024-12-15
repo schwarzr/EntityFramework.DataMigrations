@@ -1,25 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-	  <TargetFrameworks>net6;net8</TargetFrameworks>
-    <Configurations>Debug;Release;EF31;EF60;EF50;EF80</Configurations>
-  </PropertyGroup>
-
-	<PropertyGroup Condition="'$(Configuration)'=='EF60'">
-		<TargetFrameworks>net6</TargetFrameworks>
-	</PropertyGroup>
-	<PropertyGroup Condition="'$(Configuration)'=='EF80'">
 	  <TargetFrameworks>net8</TargetFrameworks>
-	</PropertyGroup>
-
-	<PropertyGroup Condition="'$(TargetFramework)' == 'net6'">
-		<DefineConstants>EF6_0</DefineConstants>
-		<EfVersion>60</EfVersion>
-	</PropertyGroup>
-	<PropertyGroup Condition="'$(TargetFramework)' == 'net8'">
-		<DefineConstants>EF8_0</DefineConstants>
-		<EfVersion>80</EfVersion>
-	</PropertyGroup>
+    <Configurations>Debug;Release;EF90</Configurations>
+  </PropertyGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\Extensions.EntityFrameworkCore.DataMigration\Extensions.EntityFrameworkCore.DataMigration.csproj" />
