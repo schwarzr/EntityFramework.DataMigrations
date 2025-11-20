@@ -1,7 +1,7 @@
 <Project>
     <PropertyGroup>
         <Company>codeworx gmbh</Company>
-        <Copyright>copyright © codeworx 2019</Copyright>
+        <Copyright>copyright © codeworx 2025</Copyright>
         <AssemblyVersion>1.0.0.0</AssemblyVersion>
         <DebugType>portable</DebugType>
         <TreatWarningsAsErrors>true</TreatWarningsAsErrors>

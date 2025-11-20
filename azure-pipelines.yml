@@ -8,7 +8,7 @@ pool:
   vmImage: windows-2022
 
 variables:
-  major: 9
+  major: 10
   minor: 0
   packageName: 'Extensions.EntityFrameworkCore.DataMigration'
   projects: 'src/Extensions.EntityFrameworkCore.DataMigration'
@@ -29,6 +29,18 @@ steps:
     projects: '$(testProjects)'
     feedsToUse: 'select'
     versioningScheme: 'off'
+
+- task: UseDotNet@2
+  displayName: install .net 10 sdk
+  inputs:
+    packageType: 'sdk'
+    version: '10.x'
+
+- task: UseDotNet@2
+  displayName: install .net 8 sdk
+  inputs:
+    packageType: 'sdk'
+    version: '8.x'
 
 - task: DotNetCoreCLI@2
   displayName: "Install package-version tool"
