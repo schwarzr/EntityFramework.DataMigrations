@@ -22,14 +22,6 @@ steps:
     targetType: 'inline'
     script: 'sqllocaldb start mssqllocaldb'
 
-- task: DotNetCoreCLI@2
-  displayName: Run dotnet test
-  inputs:
-    command: 'test'
-    projects: '$(testProjects)'
-    feedsToUse: 'select'
-    versioningScheme: 'off'
-
 - task: UseDotNet@2
   displayName: install .net 10 sdk
   inputs:
@@ -41,6 +33,14 @@ steps:
   inputs:
     packageType: 'sdk'
     version: '8.x'
+
+- task: DotNetCoreCLI@2
+  displayName: Run dotnet test
+  inputs:
+    command: 'test'
+    projects: '$(testProjects)'
+    feedsToUse: 'select'
+    versioningScheme: 'off'
 
 - task: DotNetCoreCLI@2
   displayName: "Install package-version tool"

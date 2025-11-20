@@ -1,11 +1,11 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
 		<TargetFramework>net472</TargetFramework>
 
 		<TreatWarningsAsErrors>false</TreatWarningsAsErrors>
 		<IsPackable>false</IsPackable>
-		<Configurations>Debug;Release;EF90</Configurations>
+		<Configurations>Debug;Release;EF100</Configurations>
 	</PropertyGroup>
 
 	<ItemGroup>
