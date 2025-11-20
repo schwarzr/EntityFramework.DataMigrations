@@ -1,8 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-	  <TargetFrameworks>net8</TargetFrameworks>
-    <Configurations>Debug;Release;EF90</Configurations>
+	  <TargetFrameworks>$(CoreTargets)</TargetFrameworks>
+    <Configurations>Debug;Release;EF100</Configurations>
   </PropertyGroup>
 
   <ItemGroup>

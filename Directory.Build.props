@@ -11,13 +11,17 @@
         <SymbolPackageFormat>snupkg</SymbolPackageFormat>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
     </PropertyGroup>
+<PropertyGroup>
+    <FullTargets>net462; netstandard2.1</FullTargets>
+    <CoreTargets>net10.0</CoreTargets>
+</PropertyGroup>
 
     <ItemGroup>
         <AdditionalFiles Include="..\..\global\stylecop.json" Link="stylecop.json" />
-        <PackageReference Include="StyleCop.Analyzers" Version="1.2.0-beta.113">
+        <PackageReference Include="StyleCop.Analyzers">
             <PrivateAssets>All</PrivateAssets>
         </PackageReference>
-        <PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0">
+        <PackageReference Include="Microsoft.SourceLink.GitHub">
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>

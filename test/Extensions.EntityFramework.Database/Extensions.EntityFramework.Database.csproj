@@ -1,12 +1,12 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net462</TargetFramework>
-    <Configurations>Debug;Release;EF90</Configurations>
+    <Configurations>Debug;Release;EF100</Configurations>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="EntityFramework" Version="6.5.1" />
+    <PackageReference Include="EntityFramework" />
   </ItemGroup>
 
   <ItemGroup>

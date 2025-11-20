@@ -1,11 +1,11 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Configurations>Debug;Release;EF90</Configurations>
+    <Configurations>Debug;Release;EF100</Configurations>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0"></PackageReference>
+    <PackageReference Include="System.ComponentModel.Annotations"></PackageReference>
   </ItemGroup>
 </Project>

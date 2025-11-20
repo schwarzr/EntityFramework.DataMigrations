@@ -1,11 +1,11 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>net8</TargetFrameworks>
-		<Configurations>Debug;Release;EF90</Configurations>
+		<TargetFrameworks>$(CoreTargets)</TargetFrameworks>
+		<Configurations>Debug;Release;EF100</Configurations>
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.0" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore" />
 	</ItemGroup>
 </Project>
